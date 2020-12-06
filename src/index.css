@@ -1,0 +1,37 @@
+
+
+@tailwind base;
+@tailwind components;
+
+.foregroundBg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+
+  @apply absolute h-56 w-full;
+}
+
+body {
+  height: 100%;
+}
+
+@tailwind utilities;
+
+/* body {
+  color: #3a7bfd,
+  color: linear-gradient(#57ddff , #c058f3),
+  color: #fafafa,
+  color: #e4e5f1,
+  color: #d2d3db,
+  color: #9394a5,
+  color: #484b6a,
+  color: linear-gradient(#57ddff , #c058f3),
+  color: #161722,
+  color: #25273c,
+  color: #cacde8,
+  color: #cacde8,
+  color: #e4e5f1,
+  color: #777a92,
+  color: #4d5066,
+  color: #393a4c,
+} */

@@ -1,0 +1,27 @@
+.Todo {
+  @apply  p-4 border-b border-color15;
+}
+
+.flx {
+  @apply flex justify-between items-center;
+}
+
+.inactive {
+  @apply text-color13 border-b-0;
+}
+
+#todo-check {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #393a4c;
+}
+
+#todo-check:checked {
+  content: url("../images/icon-check.svg");
+  background-size: 5px;
+  border: 0;
+  @apply bg-color2 border-0;
+  /* appearance: checkbox; */
+}
