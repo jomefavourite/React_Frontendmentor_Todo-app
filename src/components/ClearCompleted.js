@@ -1,11 +1,11 @@
 import React from "react";
 
-const ClearCompleted = ({deleteComplete, todoCompleted}) => {
+const ClearCompleted = ({ deleteComplete }) => {
   return (
     <React.Fragment>
       <p
         className='cursor-pointer'
-        onClick={() => deleteComplete(todoCompleted)}
+        onClick={() => deleteComplete()}
       >
         Clear Completed
       </p>

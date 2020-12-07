@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./components/Todo";
 import AddTodo from "./components/AddTodo";
 import Nav from "./components/Nav";
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class App extends React.Component {
 
     this.state = {
       todos: [
-        {id: 1, content: "Learning React", completed: false},
-        {id: 2, content: "Practice, Practice", completed: false},
+        { id: 1, content: "Learning React", completed: false },
+        { id: 2, content: "Practice, Practice", completed: false },
       ],
       sunVisibility: true,
     };
@@ -24,7 +24,7 @@ class App extends React.Component {
 
     if (todo.content !== "") {
       todos = [...this.state.todos, todo];
-    } 
+    }
 
     this.setState({
       todos,
@@ -59,10 +59,10 @@ class App extends React.Component {
       sunVisibility: this.state.sunVisibility === i ? false : true,
     });
   };
-
-  deleteComplete = complete => {
+  //no need for arguments here
+  deleteComplete = () => {
     let todos = this.state.todos.filter(todo => {
-      return !todo.completed === !complete;
+      return !todo.completed;
     });
 
     this.setState({
@@ -80,16 +80,14 @@ class App extends React.Component {
   render() {
     return (
       <div
-        className={`${
-          this.state.sunVisibility ? "bg-color9" : "bg-color4"
-        } h-screen w-full font-josefin`}
+        className={`${this.state.sunVisibility ? "bg-color9" : "bg-color4"
+          } h-screen w-full font-josefin`}
       >
         <div
-          className={`foregroundBg ${
-            this.state.sunVisibility
-              ? "bg-color9 bg-bg1 md:bg-bg3"
-              : "bg-color4 bg-bg2 md:bg-bg4"
-          }`}
+          className={`foregroundBg ${this.state.sunVisibility
+            ? "bg-color9 bg-bg1 md:bg-bg3"
+            : "bg-color4 bg-bg2 md:bg-bg4"
+            }`}
         >
           <div className='max-w-lg m-auto w-11/12'>
             <BrowserRouter>
