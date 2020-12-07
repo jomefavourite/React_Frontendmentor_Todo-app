@@ -2,6 +2,7 @@ import React from "react";
 import "./Todo.css";
 import cross from "../images/icon-cross.svg";
 import ClearCompleted from "./ClearCompleted";
+import ItemsLeft from "./ItemsLeft";
 
 const Todo = ({
   todos,
@@ -62,7 +63,7 @@ const Todo = ({
             sunVisibility ? "bg-color10" : "bg-color3"
           }`}
         >
-          <p>{todos.length} items left</p>
+          <ItemsLeft todos={todos} />
           <ClearCompleted
             deleteComplete={deleteComplete}
             todoCompleted={todos.completed}
