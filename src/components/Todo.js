@@ -64,10 +64,7 @@ const Todo = ({
           }`}
         >
           <ItemsLeft todos={todos} />
-          <ClearCompleted
-            deleteComplete={deleteComplete}
-            todoCompleted={todos.completed}
-          />
+          <ClearCompleted deleteComplete={deleteComplete} />
         </div>
       </div>
     </div>

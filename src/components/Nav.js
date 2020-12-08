@@ -13,8 +13,8 @@ const Nav = ({sunVisibility, todos, deleteComplete}) => {
       <div className='hidden md:block'>
         <ItemsLeft todos={todos} />
       </div>
-      <Link to='/'>All</Link>
-      <Link to='/todo'>Active</Link>
+      <Link to='/todo'>All</Link>
+      <Link to='/active'>Active</Link>
       <Link to='/'>Completed</Link>
       <div className='hidden md:block'>
         <ClearCompleted deleteComplete={deleteComplete} />

@@ -2,7 +2,8 @@ import React from "react";
 import Todo from "./components/Todo";
 import AddTodo from "./components/AddTodo";
 import Nav from "./components/Nav";
-import {BrowserRouter} from "react-router-dom";
+import Active from "./components/Active";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -88,28 +89,35 @@ class App extends React.Component {
           }`}
         >
           <div className='max-w-lg m-auto w-11/12'>
-            <BrowserRouter>
+            <Router>
               <AddTodo
                 addTodo={this.addTodo}
                 sunVisibility={this.state.sunVisibility}
                 toggleIcon={this.toggleIcon}
               />
-              {/* <Route exact path='/todo' component={Todo} /> */}
-              <Todo
-                todos={this.state.todos}
-                deleteTodo={this.deleteTodo}
-                sunVisibility={this.state.sunVisibility}
-                toggleComplete={this.toggleComplete}
-                deleteComplete={this.deleteComplete}
-                lengthTodo={this.lengthTodo}
-              />
+              <Switch>
+                <Route exact path='/todo' component={Todo} />
+                <Route path='/active' component={Active} />
+                <Todo
+                  todos={this.state.todos}
+                  deleteTodo={this.deleteTodo}
+                  sunVisibility={this.state.sunVisibility}
+                  toggleComplete={this.toggleComplete}
+                  deleteComplete={this.deleteComplete}
+                  lengthTodo={this.lengthTodo}
+                />
+                <Active
+                  todos={this.state.todos}
+                  sunVisibility={this.state.sunVisibility}
+                />
+              </Switch>
 
               <Nav
                 sunVisibility={this.state.sunVisibility}
                 todos={this.state.todos}
                 deleteComplete={this.deleteComplete}
               />
-            </BrowserRouter>
+            </Router>
           </div>
         </div>
       </div>
