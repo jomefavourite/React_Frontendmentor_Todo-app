@@ -1,7 +1,8 @@
 import React from "react";
 import ClearCompleted from "./ClearCompleted";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import ItemsLeft from "./ItemsLeft";
+import "./Nav.css";
 
 const Nav = ({sunVisibility, todos, deleteComplete}) => {
   return (
@@ -13,9 +14,9 @@ const Nav = ({sunVisibility, todos, deleteComplete}) => {
       <div className='hidden md:block'>
         <ItemsLeft todos={todos} />
       </div>
-      <Link to='/todo'>All</Link>
-      <Link to='/active'>Active</Link>
-      <Link to='/'>Completed</Link>
+      <NavLink to='/'>All</NavLink>
+      <NavLink to='/active'>Active</NavLink>
+      <NavLink to='/completed'>Completed</NavLink>
       <div className='hidden md:block'>
         <ClearCompleted deleteComplete={deleteComplete} />
       </div>

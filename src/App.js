@@ -4,6 +4,7 @@ import AddTodo from "./components/AddTodo";
 import Nav from "./components/Nav";
 import Active from "./components/Active";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Completed from "./components/Completed";
 
 class App extends React.Component {
   constructor(props) {
@@ -96,22 +97,45 @@ class App extends React.Component {
                 toggleIcon={this.toggleIcon}
               />
               <Switch>
-                <Route exact path='/todo' component={Todo} />
-                <Route path='/active' component={Active} />
-                <Todo
-                  todos={this.state.todos}
-                  deleteTodo={this.deleteTodo}
-                  sunVisibility={this.state.sunVisibility}
-                  toggleComplete={this.toggleComplete}
-                  deleteComplete={this.deleteComplete}
-                  lengthTodo={this.lengthTodo}
+                <Route
+                  exact
+                  path='/'
+                  render={props => (
+                    <Todo
+                      {...props}
+                      todos={this.state.todos}
+                      deleteTodo={this.deleteTodo}
+                      sunVisibility={this.state.sunVisibility}
+                      toggleComplete={this.toggleComplete}
+                      deleteComplete={this.deleteComplete}
+                      lengthTodo={this.lengthTodo}
+                    />
+                  )}
                 />
-                <Active
-                  todos={this.state.todos}
-                  sunVisibility={this.state.sunVisibility}
+                <Route
+                  exact
+                  path='/active'
+                  render={props => (
+                    <Active
+                      {...props}
+                      todos={this.state.todos}
+                      sunVisibility={this.state.sunVisibility}
+                      toggleComplete={this.toggleComplete}
+                    />
+                  )}
+                />
+                <Route
+                  exact
+                  path='/completed'
+                  render={props => (
+                    <Completed
+                      {...props}
+                      todos={this.state.todos}
+                      sunVisibility={this.state.sunVisibility}
+                    />
+                  )}
                 />
               </Switch>
-
               <Nav
                 sunVisibility={this.state.sunVisibility}
                 todos={this.state.todos}
