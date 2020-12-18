@@ -1,5 +1,5 @@
 .Todo {
-  @apply  p-4 border-b border-color15;
+  @apply p-4 border-b border-color15;
 }
 
 .flx {
@@ -18,10 +18,22 @@
   border: 1px solid #393a4c;
 }
 
+#todo-check-form {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #393a4c;
+}
+
 #todo-check:checked {
   content: url("../images/icon-check.svg");
   background-size: 5px;
   border: 0;
   @apply bg-color2 border-0;
   /* appearance: checkbox; */
+}
+
+form:focus-within #todo-check-form {
+  @apply border-color1;
 }
