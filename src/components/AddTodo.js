@@ -56,7 +56,9 @@ class AddTodo extends Component {
             <input
               type='checkbox'
               id='todo-check-form'
-              className='absolute mt-4 ml-4'
+              className={`absolute mt-4 ml-4 border ${
+                this.props.sunVisibility ? "border-color7" : "border-color5"
+              }`}
             />
             <input
               value={this.state.content}

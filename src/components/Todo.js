@@ -19,21 +19,32 @@ const Todo = ({
           key={todo.id}
           style={{
             textDecoration: `${todo.completed ? "line-through" : "none"}`,
-            color: `${todo.completed ? "#393a4c" : ""}`,
+            color: `${todo.completed && sunVisibility ? "#393a4c" : ""}`,
           }}
           className={`Todo flx ${
-            sunVisibility ? "bg-color10 text-color11" : "bg-color3 text-color15"
+            sunVisibility
+              ? "bg-color10 text-color11 border-color7"
+              : "bg-color3 text-color15 border-color2"
           }`}
         >
           <div className='flx'>
             <input
               type='checkbox'
               id='todo-check'
-              className='cursor-pointer'
-              onChange={() => toggleComplete(todo.id)}
-              onClick={() => lengthTodo()}
+              checked={todo.completed ? true : false}
+              className={`cursor-pointer border ${
+                sunVisibility ? "border-color7" : "border-color5"
+              }  hover:border-color1`}
+              onClick={() => toggleComplete(todo.id)}
+              onChange={() => lengthTodo()}
             />
-            <span className='ml-4'>{todo.content}</span>
+            <span
+              className={`ml-4 cursor-pointer transform hover:scale-105`}
+              onClick={() => toggleComplete(todo.id)}
+              onChange={() => lengthTodo()}
+            >
+              {todo.content}
+            </span>
           </div>
           <img
             src={cross}

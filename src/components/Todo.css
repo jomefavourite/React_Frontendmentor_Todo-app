@@ -1,5 +1,5 @@
 .Todo {
-  @apply p-4 border-b border-color15;
+  @apply p-4 border-b;
 }
 
 .flx {
@@ -15,7 +15,6 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid #393a4c;
 }
 
 #todo-check-form {
@@ -23,7 +22,6 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid #393a4c;
 }
 
 #todo-check:checked {

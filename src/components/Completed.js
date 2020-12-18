@@ -1,10 +1,10 @@
-import { React } from "react";
+import {React} from "react";
 
-const Completed = ({ sunVisibility, todos }) => {
+const Completed = ({sunVisibility, todos}) => {
   if (todos.length === 0) {
     return (
       <div
-        className={`mt-5 md:mt-0 text-center space-x-4 rounded-md md:rounded-t-none Todo flx text-color13 ${
+        className={`md:mt-0 text-center space-x-4 rounded-md md:rounded-t-none Todo flx text-color13 ${
           sunVisibility ? "bg-color10" : "bg-color3"
         }`}
       >
@@ -13,14 +13,16 @@ const Completed = ({ sunVisibility, todos }) => {
     );
   }
 
-  let todo = todos.map((todo) => {
+  let todo = todos.map(todo => {
     return (
       <div
         key={todo.id}
-        className={`mt-5 md:mt-0 text-center space-x-4 rounded-md md:rounded-t-none Todo flx text-color13 ${
-          sunVisibility ? "bg-color10" : "bg-color3"
-        } ${!todo.completed && "text-color11"}`}
-        style={{ display: todo.completed ? " " : "none" }}
+        className={`md:mt-0 text-center space-x-4 md:rounded-t-none Todo flx ${
+          sunVisibility
+            ? "bg-color10 border-color7 text-color11"
+            : "bg-color3 border-color2 text-color15"
+        }`}
+        style={{display: todo.completed ? " " : "none"}}
       >
         {todo.content}
       </div>
@@ -30,7 +32,7 @@ const Completed = ({ sunVisibility, todos }) => {
   // checks if at least one todo is completed
   const checkIfNoneCompleted = () => {
     let showMsg = false;
-    todos.forEach((todo) => {
+    todos.forEach(todo => {
       if (todo.completed) {
         showMsg = true;
       }
@@ -51,7 +53,9 @@ const Completed = ({ sunVisibility, todos }) => {
     );
   }
 
-  return <div>{todo}</div>;
+  return (
+    <div className='rounded-md overflow-hidden md:rounded-b-none'>{todo}</div>
+  );
 };
 
 export default Completed;
