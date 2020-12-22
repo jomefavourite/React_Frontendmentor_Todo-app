@@ -91,44 +91,27 @@ const App = () => {
               toggleIcon={toggleIcon}
             />
             <Switch>
-              <Route
-                exact
-                path='/'
-                render={props => (
-                  <Todo
-                    {...props}
-                    todos={todos}
-                    deleteTodo={deleteTodo}
-                    sunVisibility={sunVisibility}
-                    toggleComplete={toggleComplete}
-                    deleteComplete={deleteComplete}
-                    lengthTodo={lengthTodo}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path='/active'
-                render={props => (
-                  <Active
-                    {...props}
-                    todos={todos}
-                    sunVisibility={sunVisibility}
-                    toggleComplete={toggleComplete}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path='/completed'
-                render={props => (
-                  <Completed
-                    {...props}
-                    todos={todos}
-                    sunVisibility={sunVisibility}
-                  />
-                )}
-              />
+              <Route exact path='/'>
+                <Todo
+                  todos={todos}
+                  deleteTodo={deleteTodo}
+                  sunVisibility={sunVisibility}
+                  toggleComplete={toggleComplete}
+                  deleteComplete={deleteComplete}
+                  lengthTodo={lengthTodo}
+                />
+              </Route>
+              <Route exact path='/active'>
+                <Active
+                  todos={todos}
+                  sunVisibility={sunVisibility}
+                  toggleComplete={toggleComplete}
+                />
+                />
+              </Route>
+              <Route exact path='/completed'>
+                <Completed todos={todos} sunVisibility={sunVisibility} />
+              </Route>
             </Switch>
             <Nav
               sunVisibility={sunVisibility}
