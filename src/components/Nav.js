@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import ClearCompleted from "./ClearCompleted";
 import {NavLink} from "react-router-dom";
 import ItemsLeft from "./ItemsLeft";
 import "./Nav.css";
+import {GlobalContext} from "../context/GlobalContext";
 
-const Nav = ({sunVisibility, todos, deleteComplete}) => {
+const Nav = ({sunVisibility}) => {
+  const {todos, deleteComplete} = useContext(GlobalContext);
+
   return (
     <div
       className={`mt-5 md:mt-0 text-center space-x-4 rounded-md md:rounded-t-none Todo  text-color13 ${

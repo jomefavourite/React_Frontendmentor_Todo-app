@@ -1,17 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Todo.css";
 import cross from "../images/icon-cross.svg";
 import ClearCompleted from "./ClearCompleted";
 import ItemsLeft from "./ItemsLeft";
+import {GlobalContext} from "../context/GlobalContext";
 
-const Todo = ({
-  todos,
-  deleteTodo,
-  toggleComplete,
-  sunVisibility,
-  deleteComplete,
-  lengthTodo,
-}) => {
+const Todo = ({sunVisibility}) => {
+  const {
+    todos,
+    deleteTodo,
+    deleteComplete,
+    toggleComplete,
+    lengthTodo,
+  } = useContext(GlobalContext);
+
   let todo = todos.length ? (
     todos.map(todo => {
       return (
@@ -58,7 +60,9 @@ const Todo = ({
   ) : (
     <div
       className={`Todo ${
-        sunVisibility ? "bg-color10 text-color11" : "bg-color3"
+        sunVisibility
+          ? "bg-color10 border-color7 text-color11"
+          : "bg-color3 border-color2 text-color15"
       }`}
     >
       Add Todo List

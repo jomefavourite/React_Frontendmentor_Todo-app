@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import sun from "../images/icon-sun.svg";
 import moon from "../images/icon-moon.svg";
+import {GlobalContext} from "../context/GlobalContext";
 
-const AddTodo = props => {
+const AddTodo = ({toggleIcon, sunVisibility}) => {
+  const {addTodo} = useContext(GlobalContext);
+
   const [content, setContent] = useState("");
 
   const handleChange = e => {
@@ -13,7 +16,7 @@ const AddTodo = props => {
     e.preventDefault();
     //validation check to prevent submitting sth empty
     if (!content.trim()) return;
-    props.addTodo({content});
+    addTodo({content});
 
     setContent("");
   };
@@ -24,16 +27,16 @@ const AddTodo = props => {
         <h1 className='text-3xl uppercase font-bold tracking-wider2xl md:text-4xl'>
           Todo
         </h1>
-        {props.sunVisibility ? (
+        {sunVisibility ? (
           <img
-            onClick={() => props.toggleIcon(true)}
+            onClick={() => toggleIcon(true)}
             src={sun}
             alt='sun'
             className='cursor-pointer'
           />
         ) : (
           <img
-            onClick={() => props.toggleIcon(true)}
+            onClick={() => toggleIcon(true)}
             src={moon}
             alt='moon'
             className='cursor-pointer'
@@ -46,7 +49,7 @@ const AddTodo = props => {
             type='checkbox'
             id='todo-check-form'
             className={`absolute mt-4 ml-4 border ${
-              props.sunVisibility ? "border-color7" : "border-color5"
+              sunVisibility ? "border-color7" : "border-color5"
             }`}
           />
           <input
@@ -54,7 +57,7 @@ const AddTodo = props => {
             placeholder='Create a new todo'
             onChange={e => handleChange(e)}
             className={`${
-              props.sunVisibility
+              sunVisibility
                 ? "bg-color10 text-color11"
                 : "bg-color3 text-color10"
             } w-full mb-5 p-4 rounded-md pl-12`}

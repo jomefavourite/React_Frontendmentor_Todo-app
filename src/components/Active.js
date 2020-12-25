@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
+import {GlobalContext} from "../context/GlobalContext";
 
-const Active = ({sunVisibility, todos}) => {
+const Active = ({sunVisibility}) => {
+  const {todos} = useContext(GlobalContext);
+
   let todo = todos.length ? (
     todos.map(todo => {
       return (
         <div
           key={todo.id}
-          className={` md:mt-0 text-center space-x-4 md:rounded-t-none Todo flx ${
+          className={` md:mt-0 text-left space-x-4 md:rounded-t-none Todo flx ${
             sunVisibility
               ? "bg-color10 border-color7"
               : "bg-color3 border-color2 text-color15"
           } ${!todo.completed && "text-color11"}`}
-          style={{display: todo.completed === false ? " " : "none"}}
+          style={{display: todo.completed === false ? "block" : "none"}}
         >
           {todo.completed === false ? todo.content : null}
         </div>
@@ -42,8 +45,10 @@ const Active = ({sunVisibility, todos}) => {
   if (!checkIfNoneActive()) {
     return (
       <div
-        className={`mt-5 md:mt-0 text-center space-x-4 rounded-md md:rounded-t-none Todo flx text-color13 ${
-          sunVisibility ? "bg-color10" : "bg-color3"
+        className={`mt-5 md:mt-0 text-center space-x-4 rounded-md md:rounded-b-none Todo flx text-color13 ${
+          sunVisibility
+              ? "bg-color10 border-color7"
+              : "bg-color3 border-color2 text-color15"
         }`}
       >
         None Active
