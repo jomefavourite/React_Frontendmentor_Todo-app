@@ -1,4 +1,10 @@
-# Create React App + Tailwind CSS
+# Todo App - Frontend Mentor
+
+![preview](./src/design/preview.png)
+
+Challenge from: [frontend mentor](https://www.frontendmentor.io/)
+
+## Create React App + Tailwind CSS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
